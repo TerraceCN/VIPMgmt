@@ -1,0 +1,6 @@
+{
+    "watch": ["back"],
+    "ext": "js,ts,json",
+    "ignore": ["back/**/*.spec.ts"],
+    "exec": "ts-node --project tsconfig.back.json ./back/index.ts"
+  }
