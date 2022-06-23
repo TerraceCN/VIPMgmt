@@ -5,8 +5,8 @@ WORKDIR /build
 
 ADD package.json /build
 ADD yarn.lock /build
-RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && \
+    sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && \
     apt-get update && \
     apt-get install python3 build-essential -y
 RUN yarn config set registry https://registry.npmmirror.com && \
@@ -22,7 +22,7 @@ EXPOSE 3000
 
 ADD package.json /app
 ADD yarn.lock /app
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories && \
     apk add --no-cache --virtual .build-deps alpine-sdk python3 && \
     yarn config set registry https://registry.npmmirror.com && \
     yarn install --production && \

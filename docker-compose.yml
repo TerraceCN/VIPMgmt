@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  mariadb:
+    image: mariadb:10
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      MARIADB_ROOT_PASSWORD: 2w37rwLmY2mqYs3HQKAr
+      MARIADB_USER: vip_mgmt
+      MARIADB_DATABASE: vip_mgmt
+      MARIADB_PASSWORD: 4noDinmsfqnqLpb4uXjf
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+    ports:
+      - 127.0.0.1:14306:3306
+  server:
+    build: .
+    restart: always
+    depends_on:
+      - mariadb
+    environment:
+      TZ: Asia/Shanghai
+      DB_URL: mysql://vip_mgmt:4noDinmsfqnqLpb4uXjf@mariadb:3306/vip_mgmt
+      JWT_SECRET:
+      SMTP_USERNAME:
+      SMTP_PASSWORD:
+      SMTP_SERVER:
+      FRONT_URL: http://58.192.130.176:14000/
+    ports:
+      - 14000:3000
