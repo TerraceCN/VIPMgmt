@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, toRefs, watch } from 'vue';
+import { reactive, toRefs } from 'vue';
 
 import VChart from 'vue-echarts';
 import { use } from 'echarts/core';

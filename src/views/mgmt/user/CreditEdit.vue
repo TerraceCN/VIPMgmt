@@ -102,7 +102,7 @@ const model = reactive({
 });
 
 const before = ref('0');
-const after = computed(() => (parseInt(before.value) + model.creditChange).toString());
+const after = computed(() => (parseInt(before.value) + model.mode * model.creditChange).toString());
 
 async function handleConfirm() {
   if (id === null) return;
