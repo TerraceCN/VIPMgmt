@@ -1,4 +1,4 @@
-import { Op, fn, col } from 'sequelize';
+import { Op } from 'sequelize';
 import { body, param, query } from 'express-validator';
 
 import { router } from '.';

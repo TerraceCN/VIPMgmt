@@ -6,6 +6,7 @@ import auth from './auth';
 import credit from './credit';
 import mgmt from './mgmt';
 import user from './user';
+import statics from './statics';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,18 +21,19 @@ const routes: Array<RouteRecordRaw> = [
       ...credit,
       ...mgmt,
       ...user,
-      {
-        name: '404',
-        path: '/404',
-        component: () => import('@/views/404/index.vue')
-      },
+      ...statics,
     ],
   },
   ...auth,
   {
     path: '/:any(.*)',
     redirect: '/404'
-  }
+  },
+  {
+    name: '404',
+    path: '/404',
+    component: () => import('@/views/404/index.vue')
+  },
 ];
 
 const router = createRouter({

@@ -34,6 +34,7 @@ import {
   TicketOutline,
   IdCardOutline,
   LogOutOutline,
+  AnalyticsOutline,
 } from '@vicons/ionicons5';
 import Cookies from 'js-cookie';
 
@@ -116,6 +117,11 @@ const menuOptions: MenuOption[] = [
           label: renderLink({ name: 'AdminMgmt' }, '管理员管理'),
           key: 'AdminMgmt',
           icon: renderIcon(IdCardOutline),
+        },
+        {
+          label: renderLink({ name: 'Statics' }, '数据分析'),
+          key: 'Statics',
+          icon: renderIcon(AnalyticsOutline),
         },
       ],
     },

@@ -6,3 +6,4 @@ import './auth';
 import './users';
 import './records';
 import './level';
+import './statics';
